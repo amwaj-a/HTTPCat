@@ -12,7 +12,15 @@ resCodes.forEach((item) => {
   let div = document.createElement("div");
   let image = document.createElement("img");
   image.src = `${url}${item}`;
+  image.setAttribute("id", item);
   div.appendChild(image);
-  //   console.log(image);
   section.appendChild(div);
+});
+
+document.querySelectorAll("img").forEach((e) => {
+  console.log(e);
+  e.addEventListener("click", (i) => {
+    let id = e.getAttribute("id");
+    window.open(`${url}status/${id}`);
+  });
 });
